@@ -26,12 +26,11 @@ const Navbar = () => {
     // const is_lg = useMediaQuery('(max-width: 992px)')
     // const is_xl = useMediaQuery('(max-width: 1200px)')
   return (
-    <Box component="nav" aria-label="My site" sx={is_sm ? { width:'93%', backgroundColor:'#082c50', padding:'0.5rem 1rem' }: { width:'98%', backgroundColor:'#082c50', padding:'0.5rem 1rem' }}>
+    <Box component="nav" aria-label="My site" sx={is_sm ? { width:'93%', backgroundColor:'#47abcd', padding:'0.5rem 1rem' }: { width:'98%', backgroundColor:'#47abcd', padding:'0.5rem 1rem' }}>
       <List role="menubar" orientation="horizontal">
         <ListItem role="none">
           <Link to='/' style={{display:'flex',justifyContent:'center', alignItems:'center', color:'skyblue', textDecoration:'none'}}>
-            <img src={logo} alt="logo" loading='lazy' width='50px'/>
-            <Typography color='skyblue' sx={{lineHeight:'1.1rem'}}>Africa<br /> <span style={{color:'white'}}>Life Word Mission</span></Typography>
+            <img src={logo} alt="logo" loading='lazy' width='200px'/>
           </Link>
           
         </ListItem>
@@ -63,9 +62,7 @@ const Navbar = () => {
             </>
         }
         <ListItem role="none" sx={is_sm_1 ? {display:'none'}:{ marginInlineStart: 'auto' }}>
-          <IconButton>
-            <Badge badgeContent={'Admin'} color="warning">
-              <Box sx={{
+          <IconButton sx={{
                 backgroundColor: '#ccc',
                 zIndex: 1,
                 color: '#fff',
@@ -79,8 +76,6 @@ const Navbar = () => {
                 boxShadow: '0 4px 10px 0 rgba(0,0,0,.25)',
               }}>
                 <Typography color='white' sx={{color:'white'}}>Se connecter</Typography>
-              </Box>
-            </Badge>
           </IconButton>
         </ListItem>
         {
