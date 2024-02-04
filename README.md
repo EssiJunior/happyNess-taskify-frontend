@@ -1,6 +1,6 @@
 <div align="center" style="font-family:consolas;" >
   <img src="./logo_brand.png" alt="HappyNess Logo" width="300"  style="margin:2rem;" >
-  <h1>Welcome to the task management app (intergration test) frontend repository</h1>
+  <h1>Welcome to Taskify, the task management app (intergration test) frontend repository</h1>
   <h3>React base user interface source code</h3>
 </div>
 <br>
