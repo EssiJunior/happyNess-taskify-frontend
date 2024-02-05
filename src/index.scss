@@ -50,9 +50,9 @@ code {
   margin: 0 1rem;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, .6);
 
-  @media (max-width: 500px) {
-      font-size: 11px;
-  }
+  // @media (max-width: 400px) {
+  //     font-size: 11px;
+  // }
   clip-path: polygon(
               /* Top-left */
               0% var(--curve-size),

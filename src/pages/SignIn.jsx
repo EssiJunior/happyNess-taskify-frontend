@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import '../styles/sign_up.scss'
+import '../styles/sign_in.scss'
 // import { useSelector } from 'react-redux';
 import Lottie from 'react-lottie';
 import { useMediaQuery } from "@mui/material";
@@ -51,7 +51,7 @@ function SignIn() {
     // }, [])
 
     return (
-        <div className="sign-up">    
+        <div className="sign-in">    
         <form className="form">
             <div className="holder">
                 <section>

@@ -1,5 +1,5 @@
 .input {
-    padding: 1rem 1.5rem;
+    padding: 1rem 0rem;
     position: relative;
 }
 
@@ -11,7 +11,7 @@
     position: relative;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: black;
-    margin: 0;
+    margin: 0 0.1rem;
 }
 
 .input-field {
@@ -21,7 +21,6 @@
     color: var(--c-text);
     font-size: 1rem;
     letter-spacing: 0.1ch;
-    width: 100%;
 }
 
 .input-field:not(:placeholder-shown) + .input-label {
