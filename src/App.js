@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Home from "./pages/Home";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
+import Management from "./pages/Management";
 
 // STYLE
 import './App.scss'
@@ -15,6 +16,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
+        <Route path="/management" element={<Management />} />
       </Routes>
     </BrowserRouter>
   )

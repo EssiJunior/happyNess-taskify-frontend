@@ -2,26 +2,41 @@ import { useEffect, useState } from 'react'
 import '../styles/sign_up.scss'
 // import { useSelector } from 'react-redux';
 import Lottie from 'react-lottie';
-import { useMediaQuery } from "@mui/material";
+import { Alert, useMediaQuery } from "@mui/material";
 import lottie from '../assets/lotties/signup.json'
 import InputText from "../components/InputText/InputText"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {Visibility, VisibilityOff } from '@mui/icons-material';
 import { Typography } from '@mui/joy';
+import serverURL, { defaultOptions, isValidEmail } from '../utiils';
+import Loader from '../components/Loader/Loader';
 
 function SignUp() {
+  const navigate = useNavigate()
   // const page = useSelector((state => state.actualPage.value));
 
-  const is_lg = useMediaQuery('(max-width: 990px)')
-  // const is_lg_1 = useMediaQuery('(max-width: 700px)')
+  // States for registration
+    const [values, setValues] = useState({
+      firstName: '',
+      lastName: '',
+      email: '',
+      password: ''
+  })
 
+  // States for checking when loading
+  const [isLoading, setIsLoading] = useState(false)
+
+  const [errorMessage, setErrorMessage] = useState('')
+
+  const is_lg = useMediaQuery('(max-width: 990px)')
+  
   // Bear password visibility
   function show() {
-    return <Visibility style={{position:'absolute', right:'2%', bottom:'40%', color:"#47abcd", fontSize:"1.5rem", cursor:"pointer"}} onClick={() => toggle()}/>
+    return <Visibility style={{position:'absolute', right:'5%', bottom:'40%', color:"#47abcd", fontSize:"1.5rem", cursor:"pointer"}} onClick={() => toggle()}/>
   }
 
   function hide() {
-      return <VisibilityOff style={{position:'absolute', right:'2%', bottom:'40%', color:"#47abcd", fontSize:"1.5rem", cursor:"pointer"}} onClick={() => toggle()} />
+      return <VisibilityOff style={{position:'absolute', right:'5%', bottom:'40%', color:"#47abcd", fontSize:"1.5rem", cursor:"pointer"}} onClick={() => toggle()} />
   }
   const [icon, setIcon] = useState(show());
 
@@ -37,15 +52,61 @@ function SignUp() {
     }
   }
 
-  const defaultOptions = {
-      loop: true,
-      speed:0.1,
-      autoplay: true,
-      animationData: lottie,
-      rendererSettings: {
-        preserveAspectRatio: "xMidYMid slice"
+  // Handling changes
+    const handleChange = (e) => {
+      setValues({ ...values, [e.target.name]: e.target.value })
+  }
+
+    // Handling the form submission
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      setIsLoading(true)
+
+      console.log(values)
+      if ( values.firstName === '' || values.lastName === '' || values.email === '' || values.password === '') {
+
+        if (values.firstName === ""){
+            setIsLoading(false)
+            setErrorMessage('Please enter your first name(s).')
+        } 
+        else if (values.lastName === ""){
+            setIsLoading(false)
+            // return generateError(t("EmailError1"))
+            setErrorMessage('Please enter your last name(s).')
+        } 
+        else if (values.email === ""){
+            setIsLoading(false)
+            setErrorMessage('Please enter your email.')
+        } 
+        else if (values.password === ""){
+            setIsLoading(false)
+            setErrorMessage('Please enter your password.')
+        } 
+        else {
+          setErrorMessage('')
+        }
       }
-    };
+      else if (!isValidEmail(values.email)) {
+        setIsLoading(false)
+        setErrorMessage('Please enter a valid email address.')
+      } else {
+        setErrorMessage('')
+        return signUp()
+      }
+  };
+
+  const signUp = () =>  {
+    serverURL.post('/signup', values).then((response) => {
+        setIsLoading(false);
+        
+        console.log(response)
+        navigate("/management")
+    })
+    .catch((error) => {
+        setIsLoading(false);
+        setErrorMessage('There was an error please try later.')
+    });
+}
 
   //   useEffect(() => {
   // }, [])
@@ -55,15 +116,22 @@ function SignUp() {
       <form className="form">
         <div className="holder">
             <section>
-                <InputText label='First name' helper='Enter your first name' type="text"/>
-                <InputText label='Last name' helper='Enter your last name' type="text"/>
-                <InputText label='Email' helper='Enter your email' type="text"/>
-                <InputText label="Password" identifier='password-text' helper="Enter your password" icon={icon} type="password"/>
+                <InputText label='First name' helper='Enter your first name' type="text"   name='firstName' value={values.firstName} handler={(e) => handleChange(e) }/>
+                <InputText label='Last name' helper='Enter your last name' type="text" name='lastName' value={values.lastName} handler={(e) => handleChange(e) }/>
+                <InputText label='Email' helper='Enter your email' type="text" name='email' value={values.email} handler={(e) => handleChange(e) }/>
+                <InputText label="Password" identifier='password-text' helper="Enter your password" icon={icon} type="password" name='password' value={values.password} handler={(e) => handleChange(e) }/>
             </section>
 
+            {
+                errorMessage !== '' && 
+                <div className="alert">
+                <Alert severity="error">{errorMessage}</Alert>
+                </div>
+            }
+
             <div className="action">
-              <button class="btn">
-                  Sign Up
+              <button class="btn" onClick={(e) => handleSubmit(e)}>
+                {isLoading? <Loader size='40px' marginTop='0' bg='#fff'/> : 'Sign Up'}
               </button>
               <div className="alt">
                 <Typography>Already have an account ?</Typography>
@@ -76,7 +144,7 @@ function SignUp() {
       </form>
 
       <div className="illustration">
-          <Lottie options={defaultOptions}
+          <Lottie options={defaultOptions(lottie)}
             speed={0.5}
             height={is_lg ? 250 : 500}
             width={is_lg ? 250 :500}/>
