@@ -4,7 +4,7 @@ import withSplashScreen from '../hoc/withSplashScreen'
 import { useMediaQuery } from "@mui/material";
 import Lottie from 'react-lottie';
 import lottie from '../assets/lotties/task1.json'
-import Navbar from '../components/Navbar/Navbar';
+import { Link } from 'react-router-dom';
 
 function Home() {
   const is_lg = useMediaQuery('(max-width: 990px)')
@@ -21,7 +21,6 @@ function Home() {
 
   return (
     <div>
-      {/* <Navbar /> */}
       <div className="home">
         <div className="introduction">
           <div className='first'/>
@@ -29,12 +28,12 @@ function Home() {
           <div className="divider"></div>
           <p>In this plateform, you will manage your tasks very easily. This stuff of recording some important tasks indeed has all its importance, for that we offer you a great user experience.</p>
           <div class="wrapper">
-            <button class="btn">
+            <Link class="btn" >
                 Start managing ...
-            </button>
-            <button class="btn">
+            </Link>
+            <Link class="btn" to='/signin'>
                 Sign In
-            </button>
+            </Link>
           </div>
         </div>
         <div className="illustration">
