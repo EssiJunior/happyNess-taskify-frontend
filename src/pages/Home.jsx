@@ -25,8 +25,9 @@ function Home() {
       <div className="home">
         <div className="introduction">
           <div className='first'/>
-          <h1 className='gradient__text'>Bienvenue sur<br /> Taskify.</h1>
-          <p>Dans cette plateforme, tu vas renseigner tes informations personnels, qui serviront a mieux organiser l'eglise, et faciliter la recherche et le traitements des informations des membres</p>
+          <h1 className='gradient__text'>Welcome on<br /><code>Taskify</code></h1>
+          <div className="divider"></div>
+          <p>In this plateform, you will manage your tasks very easily. This stuff of recording some important tasks indeed has all its importance, for that we offer you a great user experience.</p>
           <div class="wrapper">
             <button class="btn">
                 Start managing ...
