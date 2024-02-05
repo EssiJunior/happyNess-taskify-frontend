@@ -126,7 +126,7 @@ function SignUp() {
 
             {
                 errorMessage !== '' && 
-                <div className="alert">
+                <div className="alert" onClick={() => setErrorMessage('')}>
                 <Alert severity="error">{errorMessage}</Alert>
                 </div>
             }
