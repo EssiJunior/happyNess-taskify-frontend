@@ -10,9 +10,12 @@ import {Visibility, VisibilityOff } from '@mui/icons-material';
 import { Typography } from '@mui/joy';
 import serverURL, { defaultOptions, isValidEmail } from '../utiils';
 import Loader from '../components/Loader/Loader';
+import { login } from '../redux/slices/authSlice';
+import { useDispatch } from 'react-redux';
 
 function SignUp() {
   const navigate = useNavigate()
+  const dispatch = useDispatch()
   // const page = useSelector((state => state.actualPage.value));
 
   // States for registration
@@ -98,8 +101,7 @@ function SignUp() {
   const signUp = () =>  {
     serverURL.post('/signup', values).then((response) => {
         setIsLoading(false);
-        
-        console.log(response)
+        dispatch(login(response.data))
         navigate("/management")
     })
     .catch((error) => {

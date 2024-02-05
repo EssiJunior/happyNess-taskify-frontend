@@ -5,19 +5,12 @@ import { useMediaQuery } from "@mui/material";
 import Lottie from 'react-lottie';
 import lottie from '../assets/lotties/task1.json'
 import { Link } from 'react-router-dom';
+import { defaultOptions } from '../utiils';
 
 function Home() {
+
   const is_lg = useMediaQuery('(max-width: 990px)')
   const [count, setCount] = useState(0)
-  const defaultOptions = {
-      loop: true,
-      speed:0.1,
-      autoplay: true,
-      animationData: lottie,
-      rendererSettings: {
-        preserveAspectRatio: "xMidYMid slice"
-      }
-    };
 
   return (
     <div>
@@ -28,7 +21,7 @@ function Home() {
           <div className="divider"></div>
           <p>In this plateform, you will manage your tasks very easily. This stuff of recording some important tasks indeed has all its importance, for that we offer you a great user experience.</p>
           <div class="wrapper">
-            <Link class="btn" >
+            <Link class="btn" to='/management'>
                 Start managing ...
             </Link>
             <Link class="btn" to='/signin'>
@@ -37,7 +30,7 @@ function Home() {
           </div>
         </div>
         <div className="illustration">
-          <Lottie options={defaultOptions}
+          <Lottie options={defaultOptions(lottie)}
             speed={0.5}
             height={is_lg ? 250 : 500}
             width={is_lg ? 250 :500}/>

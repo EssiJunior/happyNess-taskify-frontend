@@ -10,9 +10,12 @@ import {Visibility, VisibilityOff } from '@mui/icons-material';
 import { Typography } from '@mui/joy';
 import serverURL, { defaultOptions, isValidEmail } from '../utiils';
 import Loader from '../components/Loader/Loader';
+import { useDispatch } from 'react-redux';
+import { login } from '../redux/slices/authSlice';
 
 function SignIn() {
     const navigate = useNavigate()
+    const dispatch = useDispatch()
     // const page = useSelector((state => state.actualPage.value));
 
     const is_lg = useMediaQuery('(max-width: 990px)')
@@ -61,8 +64,7 @@ function SignIn() {
     const signIn = () =>  {
         serverURL.post('/signin', values).then((response) => {
             setIsLoading(false);
-            
-            console.log(response)
+            dispatch(login(response.data))
             navigate("/management")
         })
         .catch((error) => {
