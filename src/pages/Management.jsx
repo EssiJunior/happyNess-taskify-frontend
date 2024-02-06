@@ -10,6 +10,8 @@ import serverURL, { defaultOptions } from '../utiils';
 import { useMediaQuery } from '@mui/material';
 import {setTasks} from '../redux/slices/tasksSlice';
 import TaskForm from '../components/TaskForm/TaskForm';
+import CheckBox from '../components/CheckBox/CheckBox';
+import TaskList from '../components/TaskList/TaskList';
 
 const Management = () => {
     const user = useSelector((state => state.auth.user));
@@ -51,6 +53,7 @@ const Management = () => {
                     <p className='todo'>TODO <span>3</span></p>
                     <p className='done'>DONE <span>5</span></p>
                 </div>
+                <TaskList tasks={tasks}/>
             </div>
             
             <div className="illustration">
