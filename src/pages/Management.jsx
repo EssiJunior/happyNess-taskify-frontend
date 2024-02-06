@@ -26,7 +26,11 @@ const Management = () => {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
     
-    
+    const [filter, setFilter] = useState('all');
+    const [all, setAll] = useState(0);
+    const [todo, setTodo] = useState(0);
+    const [done, setDone] = useState(0);
+
     useEffect(() => {
         if (user === null) 
             navigate('/signin')
@@ -37,7 +41,12 @@ const Management = () => {
         .catch((error) => {
             console.log(error)
         });
-    }, [user, navigate, dispatch]);
+        
+        setAll(tasks.length)
+        setTodo(tasks.filter((task) => task.status === 'todo').length)
+        setDone(tasks.filter((task) => task.status === 'done').length)
+        
+    }, [user, navigate, dispatch, filter, tasks]);
 
     return (
         <section className='management'>
@@ -49,11 +58,11 @@ const Management = () => {
                 <TaskForm open={open} handleClose={handleClose}/>
                 <div className="stats">
                     <FilterAlt style={{margin:'0 1rem', color:'#85C7DE'}} />
-                    <p>ALL <span>8</span></p>
-                    <p className='todo'>TODO <span>3</span></p>
-                    <p className='done'>DONE <span>5</span></p>
+                    <p onClick={() => setFilter('all')}>ALL <span>{all}</span></p>
+                    <p onClick={() => setFilter('todo')} className='todo'>TODO <span>{todo}</span></p>
+                    <p onClick={() => setFilter('done')} className='done'>DONE <span>{done}</span></p>
                 </div>
-                <TaskList tasks={tasks}/>
+                <TaskList tasks={tasks} filter={filter} />
             </div>
             
             <div className="illustration">
