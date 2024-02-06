@@ -8,25 +8,9 @@
     justify-content: center;
     align-items: center;
     z-index: 0;
-    .slogan{
-        h1{
-            text-align: center;
-            margin: 0;
-            font-weight: 700;
-            font-size: 3rem;
-        }
-        p{
-            margin: 0;
-            letter-spacing: 0.5rem;
-        }
+    @media (max-width: 990px) {
+        flex-direction: column-reverse;
     }
-    // .divider{
-    //     height: 0.5rem;
-    //     width: 50%;
-    //     margin: 2rem 0;
-    //     background: #CFE8EF;
-    //     background: linear-gradient(315deg, #CFE8EF 17%, #95cfe4, #CFE8EF 81%);
-    // }
     .new{
         width:60%;
         height:100%;
@@ -34,6 +18,24 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        @media (max-width: 500px) {
+            height: 60%;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+        }
+        @media (min-width: 501px) and (max-width: 700px) {
+            height: 60%;
+            width: 90%;
+            align-items: center;
+            justify-content: center;
+        }
+        @media (min-width: 701px) and (max-width: 990px) {
+            height: 60%;
+            width: 60%;
+            align-items: center;
+            justify-content: center;
+        }
         .add{
             width: 70%;
             height: 5rem;
@@ -46,6 +48,9 @@
             cursor: pointer;
             &:hover{
                 background-color: rgba(224, 241, 246, 0.219);
+            }
+            @media (max-width: 990px) {
+                height: 3rem;
             }
             h1{
                 text-align: center;
@@ -65,6 +70,9 @@
             align-items: center;
             margin-top: 2rem;
             font-family: Founders Grotesk, monospace;
+            @media (max-width: 500px)  {
+                width: 90%;
+            }
             p{
                 font-size: 1.5rem;
                 border: 1px solid #85C7DE;
@@ -75,9 +83,15 @@
                 &:hover{
                     background-color: rgba(224, 241, 246, 0.219);
                 }
+                @media (max-width: 990px) {
+                    font-size: 1.2rem;
+                }
                 span{
                     font-size: 2rem;
                     font-weight: 600;
+                    @media (max-width: 990px) {
+                        font-size: 1.5rem;
+                    }
                 }
             }
             .todo{
@@ -106,7 +120,7 @@
         align-items: center;
         position: relative;
         @media (max-width: 990px) {
-            height: 50%;
+            height: 40%;
             width: 100%;
             align-items: center;
             justify-content: center;

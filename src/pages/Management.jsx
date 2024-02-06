@@ -66,9 +66,9 @@ const Management = () => {
                 <TaskForm open={open} handleClose={handleClose}/>
                 <div className="stats">
                     <FilterAlt style={{margin:'0 1rem', color:'#85C7DE'}} />
-                    <p onClick={() => setFilter('all')}>ALL <span>{all}</span></p>
-                    <p onClick={() => setFilter('todo')} className='todo'>TODO <span>{todo}</span></p>
-                    <p onClick={() => setFilter('done')} className='done'>DONE <span>{done}</span></p>
+                    <p onClick={() => setFilter('all')} style={filter === 'all' ?{backgroundColor:'rgba(224, 241, 246, 0.219)'}:{}}>ALL <span>{all}</span></p>
+                    <p onClick={() => setFilter('todo')} className='todo' style={filter === 'todo' ?{backgroundColor:'rgba(255, 166, 0, 0.065)'}:{}}>TODO <span>{todo}</span></p>
+                    <p onClick={() => setFilter('done')} className='done' style={filter === 'done' ?{backgroundColor:'rgba(0, 128, 0, 0.065)'}:{}}>DONE <span>{done}</span></p>
                 </div>
                 <TaskList tasks={tasks} filter={filter} />
             </div>
