@@ -53,10 +53,14 @@
             @media screen and (min-width: 701px) and (max-width: 990px) {
                 width: 60%;
             }
+            section{
+                width: 100%;
+            }
             .action{
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
+                width: 100%;
                 .alt{
                     display: flex;
                     justify-content: space-evenly;

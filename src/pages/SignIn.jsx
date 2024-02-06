@@ -115,16 +115,16 @@ function SignIn() {
                 }
 
                 <div className="action">
-                <button class="btn" onClick={(e) => handleSubmit(e)}>
-                    
-                {isLoading? <Loader size='40px' marginTop='0' bg='#fff'/> : 'Sign In'}
-                </button>
-                <div className="alt">
-                    <Typography>No account yet ?</Typography>
-                    <Link class="btn" to='/signup'>
-                        Sign Up
-                    </Link>
-                </div>
+                    <button class="btn" onClick={(e) => handleSubmit(e)}>
+                        
+                    {isLoading? <Loader size='40px' marginTop='0' bg='#fff'/> : 'Sign In'}
+                    </button>
+                    <div className="alt">
+                        <Typography>No account yet ?</Typography>
+                        <Link class="btn" to='/signup'>
+                            Sign Up
+                        </Link>
+                    </div>
                 </div>
             </div>
         </form>

@@ -54,10 +54,14 @@
             @media screen and (min-width: 701px) and (max-width: 990px) {
                 width: 60%;
             }
+            section{
+                width: 100%;
+            }
             .action{
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
+                width: 100%;
                 .alt{
                     display: flex;
                     justify-content: space-evenly;
@@ -100,61 +104,3 @@ p {
         text-align: center;
     }
 }
-
-// .registration {
-//     .form {
-//         display: flex;
-//         justify-content: center;
-//         align-items: center;
-//         width: 80%;
-//         height: 80vh;
-//         margin: 5rem auto;
-//         background-color: rgb(244, 248, 248);
-//         @media screen and (max-width: 990px) {
-//             height: 90vh;
-//         }
-        // @media screen and (max-width: 490px) {
-        //     width: 100%;
-        //     margi
-        // }
-        // @media screen and (min-width: 491px) and (max-width: 590px) {
-        //     width: 80%;
-        // }
-        // @media screen and (min-width: 591px) and (max-width: 700px) {
-        //     width: 70%;
-        // }
-        // @media screen and (min-width: 701px) and (max-width: 990px) {
-        //     width: 60%;
-        // }
-//         .holder {
-//             width: 30%;
-//             height: 100%;
-//             margin: auto;
-//             display: flex;
-//             flex-direction: column;
-//             justify-content: space-evenly;
-//             @media screen and (max-width: 490px) {
-//                 width: 100%;
-//             }
-//             @media screen and (min-width: 491px) and (max-width: 590px) {
-//                 width: 80%;
-//             }
-//             @media screen and (min-width: 591px) and (max-width: 700px) {
-//                 width: 70%;
-//             }
-//             @media screen and (min-width: 701px) and (max-width: 990px) {
-//                 width: 60%;
-//             }
-//         }
-//         img {
-//             width: 60%;
-//             height: 100%;
-//             object-fit: cover;
-//         }
-//     }
-// }
-
-// .css-fce9kw-JoyStepper-root {
-//     width: 90%;
-//     margin: 1rem auto!important;
-// }
