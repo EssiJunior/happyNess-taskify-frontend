@@ -1,16 +1,30 @@
-import { useState } from 'react'
-import '../styles/home.scss'
-import withSplashScreen from '../hoc/withSplashScreen'
-import { useMediaQuery } from "@mui/material";
+// # +====================================================================================+ #
+// # |====================================  HappyNess  ===================================| #
+// # |======================    taskify app - intergration test    =======================| #
+// # |======================= Programmer: NDANG ESSI Pierre Junior =======================| #
+// # +====================================================================================+ #
+
+// REACT IMPORTS
 import Lottie from 'react-lottie';
-import lottie from '../assets/lotties/task1.json'
 import { Link } from 'react-router-dom';
+
+// MATERIAL UI
+import { useMediaQuery } from "@mui/material";
+
+// COMPONENTS AND UTILITIES
+import withSplashScreen from '../hoc/withSplashScreen'
 import { defaultOptions } from '../utiils';
+
+// STYLE
+import '../styles/home.scss'
+
+// ASSETS
+import lottie from '../assets/lotties/task1.json'
 
 function Home() {
 
   const is_lg = useMediaQuery('(max-width: 990px)')
-  const [count, setCount] = useState(0)
+  
 
   return (
     <div>
@@ -40,5 +54,4 @@ function Home() {
   )
 }
 
-// Update this line, so that withSplashScreen gets Home as parameter
 export default withSplashScreen(Home);  

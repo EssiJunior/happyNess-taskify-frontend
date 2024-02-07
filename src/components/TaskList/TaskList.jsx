@@ -1,9 +1,17 @@
-import React, { useState } from 'react'
-import CheckBox from '../CheckBox/CheckBox'
+// # +====================================================================================+ #
+// # |====================================  HappyNess  ===================================| #
+// # |======================    taskify app - intergration test    =======================| #
+// # |======================= Programmer: NDANG ESSI Pierre Junior =======================| #
+// # +====================================================================================+ #
 
-import './task_list.scss'
-import RemoveTask from '../RemoveTask';
+// REACT IMPORTS
+import React from 'react'
+
+// COMPONENTS
 import Task from '../Task/Task';
+
+// STYLE
+import './task_list.scss'
 
 const TaskList = ({tasks, filter}) => {
     var tList = []

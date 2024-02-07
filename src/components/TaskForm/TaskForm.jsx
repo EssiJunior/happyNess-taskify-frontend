@@ -1,8 +1,19 @@
-import { Alert, Box, Modal, TextField, Typography } from '@mui/material'
-import './taskform.scss'
-import serverURL, { ColorButton, RefreshTasks, modalStyle } from '../../utiils';
+// # +====================================================================================+ #
+// # |====================================  HappyNess  ===================================| #
+// # |======================    taskify app - intergration test    =======================| #
+// # |======================= Programmer: NDANG ESSI Pierre Junior =======================| #
+// # +====================================================================================+ #
+
+// REACT IMPORTS
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
+// MATERIAL UI
+import { Alert, Box, Modal, TextField, Typography } from '@mui/material'
+
+// COMPONENTS AND UTILITIES
+import './taskform.scss'
+import serverURL, { ColorButton, modalStyle } from '../../utiils';
 import Loader from '../Loader/Loader';
 import { setTasks } from '../../redux/slices/tasksSlice';
 

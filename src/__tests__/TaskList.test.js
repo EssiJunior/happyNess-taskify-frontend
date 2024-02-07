@@ -4,19 +4,12 @@
 // # |======================= Programmer: NDANG ESSI Pierre Junior =======================| #
 // # +====================================================================================+ #
 
-import { createSlice } from "@reduxjs/toolkit";
+import React from 'react';
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect';
+import TaskList from '../components/TaskList/TaskList';
 
-const initialState = {
-    userTasks : [],
-};
-
-export const tasksSlice = createSlice({
-    name: "tasks",
-    initialState,
-    reducers: {
-        setTasks: (state, action) => void(state.userTasks = action.payload),
-    },
+test('renders greeting message', () => {
+    render(<TaskList filter="all" tasks={[]}/>);
+    expect(screen.getByText('All tasks')).toBeInTheDocument();
 });
-
-export const {setTasks} = tasksSlice.actions;
-export default tasksSlice.reducer; 

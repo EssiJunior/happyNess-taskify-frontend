@@ -1,5 +1,13 @@
+// # +====================================================================================+ #
+// # |====================================  HappyNess  ===================================| #
+// # |======================    taskify app - intergration test    =======================| #
+// # |======================= Programmer: NDANG ESSI Pierre Junior =======================| #
+// # +====================================================================================+ #
+
+// REACT IMPORTS
 import React from 'react'
-import Button from '@mui/material/Button';
+
+// MATERIAL UI
 import Snackbar from '@mui/material/Snackbar';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
@@ -26,15 +34,16 @@ const RemoveTask = ({open, setOpen, task}) => {
         </IconButton>
     </React.Fragment>
     );
-  return (
-    <Snackbar
-        open={open}
-        autoHideDuration={6000}
-        onClose={handleClose}
-        message={`Deleted task '${task.title}'` }
-        action={action}
-    />
-  )
+    
+    return (
+        <Snackbar
+            open={open}
+            autoHideDuration={6000}
+            onClose={handleClose}
+            message={`Deleted task '${task.title}'` }
+            action={action}
+        />
+    )
 }
 
 export default RemoveTask

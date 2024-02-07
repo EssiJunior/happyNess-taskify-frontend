@@ -1,8 +1,20 @@
+// # +====================================================================================+ #
+// # |====================================  HappyNess  ===================================| #
+// # |======================    taskify app - intergration test    =======================| #
+// # |======================= Programmer: NDANG ESSI Pierre Junior =======================| #
+// # +====================================================================================+ #
+
+// REACT IMPORTS
 import { Component } from 'react'
+
+// COMPONENTS
+import Loader from '../components/Loader/Loader'
+
+// STYLE
 import './splash_screen.scss'
 
+// ASSETS
 import logo from "../assets/2.png"
-import Loader from '../components/Loader/Loader'
 
 const SplashContent = () => {
     return (

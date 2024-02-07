@@ -1,8 +1,17 @@
+// # +====================================================================================+ #
+// # |====================================  HappyNess  ===================================| #
+// # |======================    taskify app - intergration test    =======================| #
+// # |======================= Programmer: NDANG ESSI Pierre Junior =======================| #
+// # +====================================================================================+ #
+
+// REACT IMPORTS
 import React, { useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux';
+
+// COMPOMENTS AND UTILITIES
 import CheckBox from '../CheckBox/CheckBox'
 import RemoveTask from '../RemoveTask';
 import serverURL from '../../utiils';
-import { useSelector, useDispatch } from 'react-redux';
 import { setTasks } from '../../redux/slices/tasksSlice';
 
 const Task = ({task, index}) => {
@@ -26,6 +35,7 @@ const Task = ({task, index}) => {
             console.log(error)
         });
     };
+    
     return (
     <div className="task" key={index}>
         <div className="status">

@@ -1,7 +1,11 @@
+// # +====================================================================================+ #
+// # |====================================  HappyNess  ===================================| #
+// # |======================    taskify app - intergration test    =======================| #
+// # |======================= Programmer: NDANG ESSI Pierre Junior =======================| #
+// # +====================================================================================+ #
+
 import { Button, styled } from "@mui/material";
 import axios from "axios";
-import { useDispatch } from "react-redux";
-import { setTasks } from "./redux/slices/tasksSlice";
 
 export function isValidEmail(email) {
     return /\S+@\S+\.\S+/.test(email);

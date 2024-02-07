@@ -1,7 +1,15 @@
+// # +====================================================================================+ #
+// # |====================================  HappyNess  ===================================| #
+// # |======================    taskify app - intergration test    =======================| #
+// # |======================= Programmer: NDANG ESSI Pierre Junior =======================| #
+// # +====================================================================================+ #
+
+// MATERIAL UI
 import FormControl from '@mui/joy/FormControl';
 import FormLabel from '@mui/joy/FormLabel';
 import FormHelperText from '@mui/joy/FormHelperText';
-import Input from '@mui/joy/Input';
+
+// STYLE
 import './input_text.scss'
 
 const InputText = ({label, helper, icon, identifier, type, handler, name}) => {

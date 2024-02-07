@@ -1,24 +1,40 @@
-import { useEffect, useState } from 'react'
-import '../styles/sign_up.scss'
-// import { useSelector } from 'react-redux';
+// # +====================================================================================+ #
+// # |====================================  HappyNess  ===================================| #
+// # |======================    taskify app - intergration test    =======================| #
+// # |======================= Programmer: NDANG ESSI Pierre Junior =======================| #
+// # +====================================================================================+ #
+
+// REACT IMPORTS
+import { useState } from 'react'
 import Lottie from 'react-lottie';
-import { Alert, useMediaQuery } from "@mui/material";
-import lottie from '../assets/lotties/signup.json'
-import InputText from "../components/InputText/InputText"
 import { Link, useNavigate } from "react-router-dom";
-import {Visibility, VisibilityOff } from '@mui/icons-material';
-import { Typography } from '@mui/joy';
-import serverURL, { defaultOptions, isValidEmail } from '../utiils';
-import Loader from '../components/Loader/Loader';
-import { login } from '../redux/slices/authSlice';
 import { useDispatch } from 'react-redux';
 
+// MATERIAL UI
+import { Alert, useMediaQuery } from "@mui/material";
+import {Visibility, VisibilityOff } from '@mui/icons-material';
+import { Typography } from '@mui/joy';
+
+// COMPONENTS AND UTILITIES
+import InputText from "../components/InputText/InputText"
+import Loader from '../components/Loader/Loader';
+import { login } from '../redux/slices/authSlice';
+import serverURL, { defaultOptions, isValidEmail } from '../utiils';
+
+// STYLE
+import '../styles/sign_up.scss'
+
+// ASSETS
+import lottie from '../assets/lotties/signup.json'
+
 function SignUp() {
+
+  // REACT HOOKS
+  const is_lg = useMediaQuery('(max-width: 990px)')
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  // const page = useSelector((state => state.actualPage.value));
 
-  // States for registration
+  // State for registration
     const [values, setValues] = useState({
       firstName: '',
       lastName: '',
@@ -30,8 +46,6 @@ function SignUp() {
   const [isLoading, setIsLoading] = useState(false)
 
   const [errorMessage, setErrorMessage] = useState('')
-
-  const is_lg = useMediaQuery('(max-width: 990px)')
   
   // Bear password visibility
   function show() {
@@ -109,9 +123,6 @@ function SignUp() {
         setErrorMessage('There was an error please try later.')
     });
 }
-
-  //   useEffect(() => {
-  // }, [])
 
   return (
     <div className="sign-up">    

@@ -1,20 +1,33 @@
-import React, { useState } from 'react'
+// # +====================================================================================+ #
+// # |====================================  HappyNess  ===================================| #
+// # |======================    taskify app - intergration test    =======================| #
+// # |======================= Programmer: NDANG ESSI Pierre Junior =======================| #
+// # +====================================================================================+ #
 
-import './check_box.scss'
-import serverURL from '../../utiils';
+// REACT IMPORTS
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
+
+// UTILITIES
+import serverURL from '../../utiils';
 import { setTasks } from '../../redux/slices/tasksSlice';
 
+// STYLE
+import './check_box.scss'
+
 const CheckBox = ({task}) => {
-    const user = useSelector((state => state.auth.user));
     const dispatch = useDispatch()
 
+    const user = useSelector((state => state.auth.user));
+    
+    // Bearing the default check state depending on status
     var state = '' 
     if (task.status === 'done')
         state = true
     else 
         state = false
     
+    // Bearing the check actions on tasks
     const handleCheckboxChange = () => {
         const newStatus = task.status === 'done' ? 'todo' : 'done'
 
@@ -31,6 +44,7 @@ const CheckBox = ({task}) => {
             console.log(error)
         });
     };
+
     return (
         <label class="cl-checkbox" >
             <input type="checkbox"

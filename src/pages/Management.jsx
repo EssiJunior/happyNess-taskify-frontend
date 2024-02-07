@@ -1,28 +1,43 @@
+// # +====================================================================================+ #
+// # |====================================  HappyNess  ===================================| #
+// # |======================    taskify app - intergration test    =======================| #
+// # |======================= Programmer: NDANG ESSI Pierre Junior =======================| #
+// # +====================================================================================+ #
+
+// REACT IMPORTS
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-
-import '../styles/management.scss'
-import { AddOutlined, FilterAlt } from '@mui/icons-material';
 import Lottie from 'react-lottie';
-import lottie from '../assets/lotties/tasks.json'
-import serverURL, { defaultOptions } from '../utiils';
+
+// MATERIEL UI
 import { useMediaQuery } from '@mui/material';
-import {setTasks} from '../redux/slices/tasksSlice';
+import { AddOutlined, FilterAlt } from '@mui/icons-material';
+
+// COMPONENTS AND UTILITIES
+import serverURL, { defaultOptions } from '../utiils';
 import TaskForm from '../components/TaskForm/TaskForm';
-import CheckBox from '../components/CheckBox/CheckBox';
 import TaskList from '../components/TaskList/TaskList';
+import {setTasks} from '../redux/slices/tasksSlice';
 import { login } from '../redux/slices/authSlice';
 
+// STYLE
+import '../styles/management.scss'
+
+// ASSETS
+import lottie from '../assets/lotties/tasks.json'
+
 const Management = () => {
+    // Redux selectors
     const user = useSelector((state => state.auth.user));
     const tasks = useSelector((state => state.tasks.userTasks));
 
+    // React hooks
+    const is_lg = useMediaQuery('(max-width: 990px)')
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
-    const is_lg = useMediaQuery('(max-width: 990px)')
-
+    // States 
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -31,11 +46,6 @@ const Management = () => {
     const [all, setAll] = useState(0);
     const [todo, setTodo] = useState(0);
     const [done, setDone] = useState(0);
-
-    const logOut = () => {
-        dispatch(login(null))
-        navigate('/')
-    }
 
     useEffect(() => {
         if (user === null) 
@@ -55,6 +65,11 @@ const Management = () => {
         }
         
     }, [user, navigate, dispatch, filter, tasks]);
+
+    const logOut = () => {
+        dispatch(login(null))
+        navigate('/')
+    }
 
     return (
         <section className='management'>

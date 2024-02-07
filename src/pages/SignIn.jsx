@@ -1,34 +1,48 @@
-import { useEffect, useState } from 'react'
-import '../styles/sign_in.scss'
-// import { useSelector } from 'react-redux';
+// # +====================================================================================+ #
+// # |====================================  HappyNess  ===================================| #
+// # |======================    taskify app - intergration test    =======================| #
+// # |======================= Programmer: NDANG ESSI Pierre Junior =======================| #
+// # +====================================================================================+ #
+
+// REACT IMPORTS
+import { useState } from 'react'
+import { useDispatch } from 'react-redux';
 import Lottie from 'react-lottie';
-import { Alert, useMediaQuery } from "@mui/material";
-import lottie from '../assets/lotties/signin.json'
-import InputText from "../components/InputText/InputText"
 import { Link, useNavigate } from "react-router-dom";
+
+// MATERIAL UI
+import { Alert, useMediaQuery } from "@mui/material";
 import {Visibility, VisibilityOff } from '@mui/icons-material';
 import { Typography } from '@mui/joy';
-import serverURL, { defaultOptions, isValidEmail } from '../utiils';
+
+// COMPONENTS AND UTILITIES
 import Loader from '../components/Loader/Loader';
-import { useDispatch } from 'react-redux';
+import InputText from "../components/InputText/InputText"
 import { login } from '../redux/slices/authSlice';
+import serverURL, { defaultOptions, isValidEmail } from '../utiils';
+
+// STYLE
+import '../styles/sign_in.scss'
+
+// ASSETS
+import lottie from '../assets/lotties/signin.json'
 
 function SignIn() {
+
+    // REACT HOOKS
+    const is_lg = useMediaQuery('(max-width: 990px)')
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    // const page = useSelector((state => state.actualPage.value));
 
-    const is_lg = useMediaQuery('(max-width: 990px)')
-    // const is_lg_1 = useMediaQuery('(max-width: 700px)')
+    // STATES
     const [values, setValues] = useState({
         email: '',
         password: ''
     })
-    
-  // States for checking when loading
     const [isLoading, setIsLoading] = useState(false)
     const [errorMessage, setErrorMessage] = useState('')
-
+    
+    // Handles form data change
     const handleChange = (e) => {
         setValues({ ...values, [e.target.name]: e.target.value })
     }
@@ -94,9 +108,6 @@ function SignIn() {
             setIcon(show())
         }
     }
-
-    //   useEffect(() => {
-    // }, [])
 
     return (
         <div className="sign-in">    
