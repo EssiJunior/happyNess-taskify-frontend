@@ -80,11 +80,19 @@ const Management = () => {
                 </div>
                 <TaskForm open={open} handleClose={handleClose}/>
                 <div className="stats">
+                    <div class="radio">
+                        <input onClick={() => setFilter('all')} label="All" type="radio" id="all" name="status" value="all"  />
+                        <input onClick={() => setFilter('todo')} label="Todo" type="radio" id="todo" name="status" value="todo" />
+                        <input onClick={() => setFilter('done')} label="Done" type="radio" id="done" name="status" value="done" />
+                    </div>
+                </div>
+
+                {/* <div className="stats">
                     <FilterAlt style={{margin:'0 1rem', color:'#85C7DE'}} />
                     <p onClick={() => setFilter('all')} style={filter === 'all' ?{backgroundColor:'rgba(224, 241, 246, 0.219)'}:{}}>ALL <span>{all}</span></p>
                     <p onClick={() => setFilter('todo')} className='todo' style={filter === 'todo' ?{backgroundColor:'rgba(255, 166, 0, 0.065)'}:{}}>TODO <span>{todo}</span></p>
                     <p onClick={() => setFilter('done')} className='done' style={filter === 'done' ?{backgroundColor:'rgba(0, 128, 0, 0.065)'}:{}}>DONE <span>{done}</span></p>
-                </div>
+                </div> */}
                 <TaskList tasks={tasks} filter={filter} />
             </div>
             
