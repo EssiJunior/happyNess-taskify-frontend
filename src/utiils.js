@@ -45,7 +45,8 @@ export const ColorButton = styled(Button)(() => ({
 }));
 
 const serverURL = axios.create({
-    baseURL: "http://localhost:5000/api",
+    // baseURL: "http://localhost:5000/api",
+    baseURL: "https://taskify-uozt.onrender.com/api",
 });
 
 export default serverURL;
