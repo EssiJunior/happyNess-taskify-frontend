@@ -47,24 +47,27 @@ const Management = () => {
     const [todo, setTodo] = useState(0);
     const [done, setDone] = useState(0);
 
+    const getTasks = () => {
+        serverURL.get(`/tasks/${user.id}`).then((response) => {
+            dispatch(setTasks(response.data))
+        })
+        .catch((error) => {
+            console.log(error)
+        });
+        
+        setAll(tasks.length)
+        setTodo(tasks.filter((task) => task.status === 'todo').length)
+        setDone(tasks.filter((task) => task.status === 'done').length)
+    }
+
     useEffect(() => {
         if (user === null) 
             navigate('/signin')
         else{
-            serverURL.get(`/tasks/${user.id}`).then((response) => {
-                dispatch(setTasks(response.data))
-            })
-            .catch((error) => {
-                console.log(error)
-            });
-            
-            setAll(tasks.length)
-            setTodo(tasks.filter((task) => task.status === 'todo').length)
-            setDone(tasks.filter((task) => task.status === 'done').length)
-
+            getTasks()
         }
         
-    }, [user, navigate, dispatch, filter, tasks]);
+    }, [user, tasks]);
 
     const logOut = () => {
         dispatch(login(null))
