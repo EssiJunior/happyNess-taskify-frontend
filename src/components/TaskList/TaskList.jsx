@@ -25,11 +25,15 @@ const TaskList = ({tasks, filter}) => {
 
     return (
         <div className="tasks">
-            {tList.map((task, index) => {
-                return (
-                    <Task task={task} index={index} />
-                )
-            })}
+            { 
+                tList.length !== 0 ?
+                    tList.map((task, index) => {
+                    return (
+                        <Task task={task} index={index} />
+                    )
+                }):
+                <p className='empty gradient__text'>No task yet !</p>
+            }
         </div>
     )
 }
