@@ -1,5 +1,4 @@
 <div align="center" style="font-family:consolas;" >
-  <img src="./logo_brand.png" alt="HappyNess Logo" width="300"  style="margin:2rem;" >
   <h1>Welcome to Taskify, the task management app (intergration test) frontend repository</h1>
   <h3>React base user interface source code</h3>
 </div>
@@ -12,7 +11,7 @@ Let's setup the app locally. First, you need to download this code
 
 
 ```sh
-git clone https://github.com/EssiJunior/happyNess-taskify-frontend.git
+git clone https://github.com/EssiJunior/taskify-frontend.git
 ```
 
 
